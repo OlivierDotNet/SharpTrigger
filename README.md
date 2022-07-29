@@ -13,7 +13,7 @@ Or just use it like any other delegate!
 ## Usage 
 #### Properties
 `Trigger`.`HasDelegate` -- returns whether the Trigger has a Delegate <br>
-`Trigger`.`HasFured` -- returns whether the Trigger has Fired <br>
+`Trigger`.`HasFired` -- returns whether the Trigger has Fired <br>
 
 #### Methods
 `Trigger`.`Fire()` -- Fires the Trigger <br>

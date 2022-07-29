@@ -1,7 +1,7 @@
 ﻿namespace SharpTrigger
 {
     /// <summary>
-    /// Base implementation of <see cref="ITrigger"/> with no parameter values. A <see cref="Trigger"/> is created by assigning it an <see cref="Action"/> and can only be fired once unless reloaded through <see cref="Reload"/>. 
+    /// Base implementation of <see cref="ITrigger"/> with no parameter values (for parameter values, use <see cref="Trigger{T1, T2, T3, T4}"/>). A <see cref="Trigger"/> is created by assigning it an <see cref="Action"/> and can only be fired once unless reloaded through <see cref="Reload"/>. 
     /// </summary>
     public class Trigger : ITrigger
     {

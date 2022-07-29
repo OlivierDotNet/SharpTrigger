@@ -1,6 +1,5 @@
-# SharpTrigger
-Trigger Class Library that allows you to Fire &amp; Forget!
-
+## Introduction -- SharpTrigger
+SharpTrigger is a Class Library that allows you to Fire &amp; Forget methods!
 
 It's **THAT** simple!
 
@@ -12,3 +11,22 @@ Or just use it like any other delegate!
 >![image](https://user-images.githubusercontent.com/92113985/181777290-bb92a5d5-35ad-4884-b8f1-71b04f7fdc5a.png)
 
 ----------------	
+
+## Usage 
+#### Properties
+`Trigger`.`HasDelegate` -- returns whether the Trigger has a Delegate <br>
+`Trigger`.`HasFured` -- returns whether the Trigger has Fired <br>
+
+#### Methods
+`Trigger`.`Fire()` -- Fires the Trigger <br>
+`Trigger`.`Reload()` -- Reloads the Trigger, allowing for subsequent firing <br>
+
+#### Initialization
+Creation of Trigger
+`Trigger trigger = new Action()` <br>
+Trigger to Action conversion
+`Action act = trigger` <br>
+
+## Installation
+
+[Get the latest .DLL Release](https://github.com/OlivierORRataj/SharpTrigger/releases), then (preferably but optionally) drag and drop the .DLL file into your project directory, thereafter add it as a Project Reference. An .XML file is included in each release, it contains comments for every base class member.

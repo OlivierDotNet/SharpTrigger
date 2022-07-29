@@ -17,7 +17,14 @@
         }
 
         public static implicit operator Trigger(Action a) => Init(a);
-        public static implicit operator Action(Trigger t) => t.trigger;
+        public static implicit operator Action(Trigger t)
+        {
+            if(t == null)
+            {
+                throw new ArgumentNullException("Trigger is null");
+            }
+            return t.trigger;
+        }
 
         public virtual void Fire()
         {

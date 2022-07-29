@@ -1,6 +1,9 @@
 ﻿namespace SharpTrigger
 {
-    public class Trigger
+    /// <summary>
+    /// Base implementation of <see cref="ITrigger"/> with no parameter values. A <see cref="Trigger"/> is created by assigning it an <see cref="Action"/> and can only be fired once unless reloaded through <see cref="Reload"/>. 
+    /// </summary>
+    public class Trigger : ITrigger
     {
         Action? trigger;
         protected bool hasFired;
@@ -24,7 +27,7 @@
                 {
                     trigger.Invoke();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     if (HasDelegate == false) throw new InvalidOperationException("Trigger does not have Delegate");
                 }

@@ -1,4 +1,4 @@
-## Introduction -- SharpTrigger
+# SharpTrigger
 SharpTrigger is a Class Library that allows you to Fire &amp; Forget methods!
 
 It's **THAT** simple!

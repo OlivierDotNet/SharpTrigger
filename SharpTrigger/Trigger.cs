@@ -17,7 +17,16 @@
             return new Trigger() { trigger = method, hasFired = false };
         }
 
+        /// <summary>
+        /// Returns a new <see cref="Trigger"/> from <paramref name="a"/>
+        /// </summary>
+        /// <param name="a">Method</param>
         public static implicit operator Trigger(Action a) => Init(a);
+
+        /// <summary>
+        /// Returns the stored <see cref="Action"/> of <see cref="Trigger"/>
+        /// </summary>
+        /// <param name="t">Trigger to return</param>
         public static implicit operator Action(Trigger t)
         {
             if(t == null)

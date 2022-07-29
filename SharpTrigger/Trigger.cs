@@ -234,4 +234,45 @@
             }
         }
     }
+
+    public class Trigger<T1, T2, T3, T4, T5> : Trigger
+    {
+        Action<T1, T2, T3, T4, T5> trigger;
+
+        public override bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
+
+        protected static Trigger<T1, T2, T3, T4, T5> Init(Action<T1, T2, T3, T4, T5> method)
+        {
+            return new Trigger<T1, T2, T3, T4, T5>() { trigger = method, hasFired = false };
+        }
+
+        public static implicit operator Trigger<T1, T2, T3, T4, T5>(Action<T1, T2, T3, T4, T5> a) => Init(a);
+        public static implicit operator Action<T1, T2, T3, T4, T5>(Trigger<T1, T2, T3, T4, T5> t)
+        {
+            if (t == null)
+            {
+                throw new ArgumentNullException("Trigger is null");
+            }
+            return t.trigger;
+        }
+
+        public void Fire(T1 obj, T2 obj2, T3 obj3, T4 obj4, T5 obj5)
+        {
+            if (hasFired == false)
+            {
+                try
+                {
+                    trigger.Invoke(obj, obj2, obj3, obj4, obj5);
+                }
+                catch (Exception ex)
+                {
+                    if (HasDelegate == false) throw new InvalidOperationException("Trigger does not have Delegate");
+                }
+                finally
+                {
+                    hasFired = true;
+                }
+            }
+        }
+    }
 }

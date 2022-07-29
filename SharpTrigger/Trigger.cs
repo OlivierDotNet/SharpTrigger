@@ -29,6 +29,11 @@
 
         public virtual void Fire()
         {
+            if(GetType().IsSubclassOf(typeof(Trigger)))
+            {
+                throw new InvalidOperationException("This Trigger requires explicit parameters");
+            }
+
             if (hasFired == false)
             {
                 try

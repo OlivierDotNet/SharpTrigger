@@ -7,8 +7,9 @@
     {
         Action? trigger;
         protected bool hasFired;
+        protected bool hasDelegate;
 
-        public virtual bool HasDelegate { get { return trigger != null && trigger.Method != null; } }
+        public virtual bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
         public bool HasFired { get { return hasFired; } }
 
         protected static Trigger Init(Action method)
@@ -58,8 +59,8 @@
     public class Trigger<T1> : Trigger
     {
         Action<T1> trigger;
+        public override bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
 
-        public virtual bool HasDelegate { get { return trigger != null && trigger.Method != null; } }
 
         protected static Trigger<T1> Init(Action<T1> method)
         {
@@ -77,7 +78,7 @@
         }
 
 
-        public virtual void Fire(T1 obj)
+        public void Fire(T1 obj)
         {
             if (hasFired == false)
             {
@@ -101,7 +102,7 @@
     {
         Action<T1, T2> trigger;
 
-        public virtual bool HasDelegate { get { return trigger != null && trigger.Method != null; } }
+        public override bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
 
         protected static Trigger<T1, T2> Init(Action<T1, T2> method)
         {
@@ -118,7 +119,7 @@
             return t.trigger;
         }
 
-        public virtual void Fire(T1 obj, T2 obj2)
+        public void Fire(T1 obj, T2 obj2)
         {
             if (hasFired == false)
             {
@@ -142,7 +143,7 @@
     {
         Action<T1, T2, T3> trigger;
 
-        public virtual bool HasDelegate { get { return trigger != null && trigger.Method != null; } }
+        public override bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
 
         protected static Trigger<T1, T2, T3> Init(Action<T1, T2, T3> method)
         {
@@ -159,7 +160,7 @@
             return t.trigger;
         }
 
-        public virtual void Fire(T1 obj, T2 obj2, T3 obj3)
+        public void Fire(T1 obj, T2 obj2, T3 obj3)
         {
             if (hasFired == false)
             {
@@ -183,7 +184,7 @@
     {
         Action<T1, T2, T3, T4> trigger;
 
-        public virtual bool HasDelegate { get { return trigger != null && trigger.Method != null; } }
+        public override bool HasDelegate { get { return hasDelegate = trigger != null && trigger.Method != null; } }
 
         protected static Trigger<T1, T2, T3, T4> Init(Action<T1, T2, T3, T4> method)
         {
@@ -200,7 +201,7 @@
             return t.trigger;
         }
 
-        public virtual void Fire(T1 obj, T2 obj2, T3 obj3, T4 obj4)
+        public void Fire(T1 obj, T2 obj2, T3 obj3, T4 obj4)
         {
             if (hasFired == false)
             {
